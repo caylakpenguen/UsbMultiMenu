@@ -1,0 +1,341 @@
+timeout 10
+default 0
+#gfxmenu (hd0,0)/message.penguen
+gfxmenu /GFXMENU/BL_GIRL2.GFX
+# ============================== MY-GFX FILES =============================
+# =========================================================================
+# gfxmenu /GRUBMENU/GFXMENU/BL_GIRL2.GFX
+# gfxmenu /GRUBMENU/GFXMENU/BL_NATURE.GFX
+# gfxmenu /GRUBMENU/GFXMENU/BL_SPRING.GFX
+# gfxmenu /GRUBMENU/GFXMENU/BL_ANIMATE.GFX
+# gfxmenu /GRUBMENU/GFXMENU/BL_GIRL.GFX
+# gfxmenu /GRUBMENU/GFXMENU/BL_PENGUEN.GFX
+# gfxmenu /GRUBMENU/GFXMENU/BL_TIGER.GFX
+# gfxmenu /GRUBMENU/GFXMENU/OPENSUSE_ENG.GFX
+# gfxmenu /GRUBMENU/GFXMENU/SUSE_LINUX
+# gfxmenu /GRUBMENU/GFXMENU/SUSE_LINUX-2.GFX
+# gfxmenu /GRUBMENU/GFXMENU/91307-MESSAGE8.GFX
+# gfxmenu /GRUBMENU/GFXMENU/73806-DRXNELE.GFX
+# splashimage /GRUBMENU/GFXMENU/MY_IMAGE.GZ
+# =========================================================================
+title Partde Magic - Default settings 32 (Runs from RAM)
+#root (hd0,0)
+kernel /pmagic/bzImage edd=on vga=normal vmalloc=464MiB
+initrd /pmagic/initrd.img
+
+title Partde Magic - Default settings 64 (Runs from RAM)
+# root (hd0,0)
+ kernel /pmagic/bzImage64 edd=on vga=normal
+ initrd /pmagic/initrd64.img
+
+title Partde Magic Live - Default settings 32 (Runs from RAM)
+
+kernel /pmagic/bzImage edd=on vga=normal boot=live eject=no vmalloc=384MiB
+initrd /pmagic/initrd.img
+
+title Partde Magic Live - Default settings 64 (Runs from RAM)
+root (hd0,0)
+kernel (hd0,0)/pmagic/bzImage64 edd=on vga=normal boot=live eject=no vmalloc=384MiB
+initrd (hd0,0)/pmagic/initrd.img
+
+
+title Windows XP_____________Ara-Bul-Calistir - Find and Boot
+find --set-root /ntldr
+chainloader /ntldr
+boot
+
+title Windows Vista__________Ara-Bul-Calistir - Find and Boot
+find --set-root /bootmgr
+chainloader /bootmgr
+boot
+
+
+
+title Mini_XP_Live_Network_Destekli_x86.iso (Direct mapping)
+find --set-root --ignore-floppies --ignore-cd /minixp.iso
+map /minixp.iso (hd32)
+map --hook
+chainloader (hd32)
+boot
+
+title Slackware 14.1 X CDROM Modu
+root (hd0,0)
+kernel (hd0,0)/slack141/boot/vmlinuz-slax load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791 slax.flags=xmode
+initrd (hd0,0)/slack141/boot/initrd-slack141.img
+
+
+title Slax 7 X Modu Normal NOD
+kernel (hd0,4)/slax/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791 slax.flags=perch,xmode
+initrd (hd0,4)/slax/boot/initrfs.img
+
+title Slax 7 X CDROM Modu
+kernel (hd0,4)/slax/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791 slax.flags=xmode
+initrd (hd0,4)/slax/boot/initrfs.img
+
+title Slax 7 X CDROM Modu Ramdisk
+kernel (hd0,4)/slax/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=524288 rw printk.time=0 max_loop=200 vga=791 slax.flags=xmode
+initrd (hd0,4)/slax/boot/initrfs.img
+
+title Slax 7 Konsol Modu
+kernel (hd0,4)/slax/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791 slax.flags=
+initrd (hd0,4)/slax/boot/initrfs.img
+
+title Slax 7 X CDROM Modu Serial Console
+kernel (hd0,4)/slax/boot/vmlinuz console=ttyS0,38400n8 load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=524288 rw printk.time=0 max_loop=200 vga=791 slax.flags=xmode
+initrd (hd0,4)/slax/boot/initrfs.img
+
+
+title Slackware 14 X CDROM Modu
+kernel (hd0,0)/slack32/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791 slax.flags=xmode
+initrd (hd0,0)/slack32/boot/initrfs.img
+
+
+title Caylak CDROM Modu
+kernel (hd0,4)/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791 slax.flags=xmode
+initrd (hd0,4)/boot/initrd.gz
+
+# Yapilan degisiklikler Kayit Ediliyor
+title Slax Linux_____________Normal MOD
+root (hd0,0)
+kernel (hd0,0)/slax6/boot/vmlinuz ramdisk_size=15360 root=/dev/ram0 rw max_loop=200 autoexec=xconf;telinit~4 changes=/slax6/slaxsave.dat
+initrd (hd0,0)/slax6/boot/initrd.gz
+boot
+
+# Yapilan degisiklikler Kayit Edilmiyor
+title Slax Linux_____________CD MOD
+root (hd0,0)
+kernel (hd0,0)/slax6/boot/vmlinuz ramdisk_size=15360 root=/dev/ram0 rw max_loop=200 autoexec=xconf;telinit~4 
+initrd (hd0,0)/slax6/boot/initrd.gz
+boot
+
+
+
+
+title Super Grub.0.97_______________Disket IMAJI - Floppy Image
+map --mem (hd0,0)/BOOTBLUE/GRUB/sgd.gz (fd0)
+map --hook
+chainloader (fd0)+1
+rootnoverify (fd0)
+map --floppies=1
+boot
+
+title Super Grub2_______________Disket IMAJI - Floppy Image
+map --mem (hd0,0)/BOOTBLUE/GRUB/sgd2.gz (fd0)
+map --hook
+chainloader (fd0)+1
+rootnoverify (fd0)
+map --floppies=1
+boot
+
+
+
+ title Parted Magic Default settings (Runs from RAM)
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage  edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 loglevel=0 max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+
+ title Parted Magic Linux Software RAID (MD devices)
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 loglevel=0 max_loop=256 mdadm vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+
+ title Parted Magic Nouveau
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 loglevel=0 max_loop=256 nouveau vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+ 
+ title Parted Magic No ehci-hcd
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 loglevel=0 max_loop=256 no_ehci-hcd vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+ 
+ title Parted Magic Initramfs (boot to initramfs shell)
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 initramfs_shell max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+ 
+ title Parted Magic Console (boots to the shell)
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=normal consoleboot max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+
+ title Parted Magic Emulator compatibility
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 livemedia noeject noreplace-paravirt loglevel=0 xvesa  max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+
+ title Parted Magic No eject CD
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 noeject loglevel=0  max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+
+ title Parted Magic Safe Graphics Settings (vga=normal)
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=normal loglevel=0 max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+ 
+ title Parted Magic ACPI=NO for Toshiba Satellite
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage acpi=no edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 loglevel=0 xvesa max_loop=256 vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+ 
+ title Parted Magic Failsafe Settings
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=normal nolapic nopcmcia noscsi nogpm consoleboot nosmart nosshd nosound max_loop=256 no_iscsi vmalloc=256MiB
+ initrd (hd0,0)/pmagic/initrd.img
+ 
+#title Slax 7 Yerel sdb10 
+#kernel (hd1,9)/boot/vmlinuz  root=UUID=a6ee55f0-7a56-4ec1-be00-b2d1de6fee96 ro printk.time=0 max_loop=200 vga=791 slax.flags=
+#initrd (hd0,4)/slax/boot/initrfs.img
+
+
+title Anatolya 4
+kernel (hd0,4)/anatolya/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791
+initrd (hd0,4)/anatolya/boot/anatolya.img
+
+title Slackware 14
+kernel (hd0,4)/slax/boot/vmlinuz load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 max_loop=200 vga=791
+initrd (hd0,4)/slax/boot/slackware.img
+
+title Slackware 14 Kurulum
+kernel (hd0,0)/slack/kernels/hugesmp.s/bzImage load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 SLACK_KERNEL=hugesmp.s
+initrd (hd0,0)/slack/initrd.img
+
+title Salix 64 Kurulum
+kernel (hd0,0)/sx/kernels/hugesmp.s/bzImage load_ramdisk=1 prompt_ramdisk=0 rw SLACK_KERNEL=huge.s
+initrd (hd0,0)/sx/isolinux/initrd.img
+
+title memdisk Iso Grub 0.97
+kernel (hd0,0)/memdisk iso
+initrd (hd0,0)/grub.iso
+
+# Yapilan degisiklikler Kayit Ediliyor
+title Slax Linux_____________Normal MOD
+root (hd0,4)
+kernel (hd0,4)/boot/slax6/vmlinuz ramdisk_size=15360 root=/dev/ram0 rw max_loop=200 autoexec=xconf;telinit~4 changes=/slax6/slaxsave.dat
+initrd (hd0,4)/boot/slax6/initrd6.gz
+boot
+
+# Yapilan degisiklikler Kayit Edilmiyor
+title Slax Linux_____________CD MOD
+root (hd0,4)
+kernel (hd0,4)/boot/slax6/vmlinuz ramdisk_size=15360 root=/dev/ram0 rw max_loop=200 autoexec=xconf;telinit~4 
+initrd (hd0,4)/boot/slax6/initrd6.gz
+boot
+
+# WinPE, Acronis, Ghost, Hiren, vb. gibi Imajlar
+title Kurtarma Araclari______Rescue Tools
+password blue
+configfile /BOOTBLUE/Kurtarma.lst
+
+title 1. HDD 2. Partition____Baslat - Start
+rootnoverify (hd0,1)
+chainloader +1
+
+title 2. HDD_________________Baslat - Start
+map (hd1) (hd0)
+map (hd0) (hd1)
+rootnoverify (hd1,0)
+makeactive
+chainloader +1 
+
+title 1. CDROM_______________Baslat - Start
+cdrom --init
+map --hook
+chainloader (cd0)
+boot
+
+title 1. Disket - Floppy_____Baslat - Start
+chainloader (fd0)+1
+rootnoverify (fd0)
+
+title Yeniden Baslat_________Restart
+savedefault --wait=2
+reboot
+
+title Kapat__________________Shutdown
+savedefault --wait=2
+halt
+
+title memdisk Iso Slitaz 3.0
+kernel (hd0,0)/memdisk iso 
+initrd (hd0,0)/slitaz-3.0.iso
+
+title memdisk Iso Mini_XP_Live
+kernel (hd0,0)/memdisk iso 
+initrd (hd0,0)/minixp.iso
+
+title memdisk Iso win7pe
+kernel (hd0,0)/memdisk iso 
+initrd (hd0,0)/win7pe.iso
+
+title Mini_XP_Live_Network_Destekli_x86.iso (Direct mapping)
+find --set-root --ignore-floppies --ignore-cd /minixp.iso
+map /minixp.iso (hd32)
+map --hook
+chainloader (hd32)
+boot
+
+title Floppy
+        map --mem (hd0,0)/nas.img (fd0)
+	map --hook
+	chainloader (fd0)+1
+	rootnoverify (fd0)
+	map --floppies=1
+	bootmgr
+
+title Acronis-2013 (Direct mapping)
+find --set-root --ignore-floppies --ignore-cd /acro.iso
+map /acro.iso (hd32)
+map --hook
+chainloader (hd32)
+boot
+
+title Acronis-2013-Ful (Direct mapping)
+find --set-root --ignore-floppies --ignore-cd /acronic2013.iso
+map /acronic2013.iso (hd32)
+map --hook
+chainloader (hd32)
+boot
+
+title Portheus Changes Modu
+root (hd0,0)
+kernel (hd0,0)/boot/syslinux/vmlinuz changes=/porteus 
+initrd (hd0,0)/boot/syslinux/initrd.xz
+
+title Portheus fresh Modu
+root (hd0,0)
+kernel (hd0,0)/boot/syslinux/vmlinuz nomagic base_only norootcopy
+initrd (hd0,0)/boot/syslinux/initrd.xz
+
+title Portheus Copy To RAM Modu
+root (hd0,0)
+kernel (hd0,0)/boot/syslinux/vmlinuz copy2ram
+initrd (hd0,0)/boot/syslinux/initrd.xz
+
+
+title Portheus Text mode
+root (hd0,0)
+kernel (hd0,0)/boot/syslinux/vmlinuz 3
+initrd (hd0,0)/boot/syslinux/initrd.xz
+
+
+title Partde Magic - Default settings 32 (Runs from RAM)
+root (hd0,0)
+kernel (hd0,0)/pmagic/bzImage edd=on vga=normal vmalloc=464MiB
+initrd (hd0,0)/pmagic/initrd.img
+
+title Partde Magic - Default settings 64 (Runs from RAM)
+ root (hd0,0)
+ kernel (hd0,0)/pmagic/bzImage64 edd=on vga=normal
+ initrd (hd0,0)/pmagic/initrd64.img
+
+title Partde Magic Live - Default settings 32 (Runs from RAM)
+root (hd0,0)
+kernel (hd0,0)/pmagic/bzImage edd=on vga=normal boot=live eject=no vmalloc=384MiB
+initrd (hd0,0)/pmagic/initrd.img
+
+title Partde Magic Live - Default settings 64 (Runs from RAM)
+root (hd0,0)
+kernel (hd0,0)/pmagic/bzImage64 edd=on vga=normal boot=live eject=no vmalloc=384MiB
+initrd (hd0,0)/pmagic/initrd.img
